@@ -8,7 +8,7 @@ class TableRow extends React.Component {
         console.log(this.props.column)
         const display = []
         for (let i=0; i<this.props.column; i++){
-            display.push(<TableCell key={i} color={this.props.color} clear ={this.props.clear}/>)
+            display.push(<TableCell key={i} color={this.props.color} colorFunction={this.props.colorFunction} clear ={this.props.clear}/>)
         }
 
         return  <div className='row'>

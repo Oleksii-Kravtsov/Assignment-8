@@ -8,14 +8,12 @@ class Table extends React.Component {
         this.state = {
           column:0,
           row:0,
-          color:""
+          color:"",
+          colorFunction:"",
         };
         this.changeRow = this.changeRow.bind(this)
         this.changeColumn = this.changeColumn.bind(this)
         this.changeColor = this.changeColor.bind(this)
-        this.clearAll = this.clearAll.bind(this)
-        this.FillAll = this.FillAll.bind(this)
-        this.FillEmpty = this.FillEmpty.bind(this)
       }
     
       changeColor(color){
@@ -42,36 +40,16 @@ class Table extends React.Component {
           }
       }
 
-    clearAll() {
-        const boxes = document.getElementsByClassName("box")   
-        for (let box of boxes){
-            box.style.backgroundColor = ""
-        }
-    }
-    
-    FillAll(){
-        const boxes = document.getElementsByClassName("box")   
-        for (let box of boxes){
-            if (!box.style.backgroundColor || box.style.backgroundColor.value!=this.state.color){
-                box.style.backgroundColor = this.state.color
-            }
-        }
-    }
-
-    FillEmpty(){
-        const boxes = document.getElementsByClassName("box")   
-        for (let box of boxes){
-            if (!box.style.backgroundColor){
-                box.style.backgroundColor = this.state.color
-            }
-        }
+    //to change color function (e.g., clearall, fillall, ...) that will then get passed to the cell
+    colorFunctionChange(change){
+        this.setState({...this.state, colorFunction: change})
     }
 
     render(){
 
         const row = []
         for (let i=0; i<this.state.row;i++){
-            row.push(<TableRow key={i} column={this.state.column} color={this.state.color}  clear ={this.state.clear}/>)
+            row.push(<TableRow key={i} column={this.state.column} color={this.state.color} colorFunction={this.state.colorFunction}  clear ={this.state.clear}/>)
         }
 
         return  <main>
@@ -89,16 +67,16 @@ class Table extends React.Component {
                         <div className="dropdown">
                         <button className="dropbtn">Colors</button>
                             <div className="dropdown-content">
-                                <div className="option" id="white" onClick={()=>this.changeColor("white")}></div>
-                                <div className="option" id="red" onClick={()=>this.changeColor( "lightcoral")}></div>
-                                <div className="option" id="green" onClick={()=>this.changeColor("lightgreen")}></div>
-                                <div className="option" id="yellow" onClick={()=>this.changeColor( "lemonchiffon")}></div>
-                                <div className="option" id="blue" onClick={()=>this.changeColor("cornflowerblue")}></div>
+                                <div className="option white" onClick={()=>this.changeColor("white")}></div>
+                                <div className="option red" onClick={()=>this.changeColor( "red")}></div>
+                                <div className="option green" onClick={()=>this.changeColor("green")}></div>
+                                <div className="option yellow" onClick={()=>this.changeColor( "yellow")}></div>
+                                <div className="option blue" onClick={()=>this.changeColor("blue")}></div>
                             </div>
                         </div>
-                        <button className="control" onClick={this.FillEmpty}>Fill Empties</button>
-                        <button className="control" onClick={this.FillAll}>Fill All</button>
-                        <button className="control" onClick={this.clearAll}>Clear All</button>
+                        <button className="control" onClick={()=>this.colorFunctionChange("fillempties")} onMouseLeave={()=>this.colorFunctionChange("")}>Fill Empties</button>
+                        <button className="control" onClick={()=>this.colorFunctionChange("fillall")} onMouseLeave={()=>this.colorFunctionChange("")}>Fill All</button>
+                        <button className="control" onClick={()=>this.colorFunctionChange("clearall")} onMouseLeave={()=>this.colorFunctionChange("")}>Clear All</button>
                     </div>
 
                     <div className='main'>

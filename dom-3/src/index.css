@@ -54,9 +54,6 @@ header {
   /* border: 1px black solid; */
 }
 
-.box:hover {
-  background-color: rgba(0, 0, 0, 0.356);
-}
 
 .row{
   display: flex;
@@ -121,17 +118,30 @@ header {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #a4a8a5;}
 
-#red {
+.white {
+  background-color: white;
+}
+
+.red {
   background-color: lightcoral;
 }
-#green{
+.green{
   background-color: lightgreen;
 }
 
-#yellow {
+.yellow {
   background-color:lemonchiffon;
 }
 
-#blue {
+.blue {
   background-color: cornflowerblue;
 }
+
+.hover-color {
+  background-color: rgba(0, 0, 0, 0.356);
+}
+
+.opacity03{
+  opacity: .3;
+}
+
