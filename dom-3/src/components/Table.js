@@ -68,10 +68,15 @@ class Table extends React.Component {
                         <button className="dropbtn">Colors</button>
                             <div className="dropdown-content">
                                 <div className="option white" onClick={()=>this.changeColor("white")}></div>
+                                <div className="option black" onClick={()=>this.changeColor("black")}></div>
                                 <div className="option red" onClick={()=>this.changeColor( "red")}></div>
                                 <div className="option green" onClick={()=>this.changeColor("green")}></div>
                                 <div className="option yellow" onClick={()=>this.changeColor( "yellow")}></div>
                                 <div className="option blue" onClick={()=>this.changeColor("blue")}></div>
+                                <div className="option pink" onClick={()=>this.changeColor("pink")}></div>
+                                <div className="option brown" onClick={()=>this.changeColor("brown")}></div>
+                                <div className="option coral" onClick={()=>this.changeColor("coral")}></div>
+                                <div className="option dark-olive-green" onClick={()=>this.changeColor("dark-olive-green")}></div>
                             </div>
                         </div>
                         <button className="control" onClick={()=>this.colorFunctionChange("fillempties")} onMouseLeave={()=>this.colorFunctionChange("")}>Fill Empties</button>
