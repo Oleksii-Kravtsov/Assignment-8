@@ -8,7 +8,7 @@ class Table extends React.Component {
         this.state = {
           column:0,
           row:0,
-          color:"",
+          color:"white",
           colorFunction:"",
         };
         this.changeRow = this.changeRow.bind(this)
