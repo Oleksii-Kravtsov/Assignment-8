@@ -21,7 +21,7 @@ class Table extends React.Component {
         this.setState({...this.state, color:color})
       }
     
-
+      //add/delete row else reset
       changeRow(count){
           if (this.state.row===0 && this.state.column===0 && count>0){
             this.setState({column:1, row:1})
@@ -31,7 +31,8 @@ class Table extends React.Component {
             this.setState({column:0, row:0})
           }
       }
-    
+
+     //add/delete cloumn else reset
       changeColumn(count){
           if (this.state.row===0 && this.state.column===0 && count>0){
             this.setState({column:1, row:1})
