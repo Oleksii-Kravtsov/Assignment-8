@@ -35,11 +35,13 @@ class TableCell extends React.Component {
         }
     }
 
+    //method that fills all cells
     FillAll(){
         // console.log("fillall")
         this.setBackgroundColor(this.props.color)
     }
     
+    //method that fills all empty cells
     FillEmpties(){
         // console.log("fillempties")
         if(!this.state.backgroundColor){
@@ -47,22 +49,25 @@ class TableCell extends React.Component {
         }
     }
 
+    //method that clears all cells of color
     ClearAll(){
         // console.log("clearall")
         this.setBackgroundColor("")
     }
 
-
+    //what happens when user clicks a cell
     handleClick() {
         console.log("clicked")
         this.setBackgroundColor(this.props.color)
     }
 
+    //what happens when user holds button down on a cell
     handleMouseDown(){
         console.log("onmousedown")
         this.setBackgroundColor(this.props.color)
     }
 
+    //what happens when user hovers over a cell
     onMouseOver(event){
         if(this.state.backgroundColor)
             this.changeOpacityEffect(true)
@@ -79,6 +84,7 @@ class TableCell extends React.Component {
         }
     }
 
+    //what happens when the user's mouse leaves the cell
     onMouseLeave(event){
         this.changeOpacityEffect(false)
         //if leaving a cell and not pressing left click
@@ -87,11 +93,12 @@ class TableCell extends React.Component {
         }
     }
 
+    //internal method that changes the backgound color and sets the previous backgorund color as well
     setBackgroundColor(color){
         this.setState({backgroundColor:color, prevBackgroundColor: color})
     }
 
-
+    //change hover effect to either true or false
     changeHoverEffect(state){
         //if true, create hover effect
         if(state){
