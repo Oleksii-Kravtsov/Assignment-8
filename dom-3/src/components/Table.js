@@ -16,10 +16,12 @@ class Table extends React.Component {
         this.changeColor = this.changeColor.bind(this)
       }
     
+      //change the color for the cells, so that they know what to do when they get clicked
       changeColor(color){
         this.setState({...this.state, color:color})
       }
     
+
       changeRow(count){
           if (this.state.row===0 && this.state.column===0 && count>0){
             this.setState({column:1, row:1})
